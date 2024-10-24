@@ -1,0 +1,31 @@
+{
+  "name": "whatsapp_openai_backend",
+  "version": "1.0.0",
+  "description": "v1 backend proyecto whatsappopenai app para automatizar respuestas de whatsapp utilizando ai",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LechuMamais/WhatsApp_openAI_backend.git"
+  },
+  "keywords": [
+    "WhatsApp",
+    "openAI",
+    "backend"
+  ],
+  "author": "Alexis Mamais Mazzucco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LechuMamais/WhatsApp_openAI_backend/issues"
+  },
+  "homepage": "https://github.com/LechuMamais/WhatsApp_openAI_backend#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.2",
+    "openai": "^4.68.4",
+    "twilio": "^5.3.5"
+  }
+}
