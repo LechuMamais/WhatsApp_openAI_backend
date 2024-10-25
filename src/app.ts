@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import faqRoutes from './routes/faqRoutes';
+import businessRoutes from './routes/businessRoutes';
 
 dotenv.config();
 
@@ -11,7 +12,9 @@ const app: Application = express();
 app.use(express.json());
 
 // Routes
-app.use('/api/faqs', faqRoutes);
+const baseEndPoint = '/api/v0'
+app.use(baseEndPoint+'/faqs', faqRoutes);
+app.use(baseEndPoint+'/businesses', businessRoutes);
 
 // Database connection
 const connectDB = async () => {
