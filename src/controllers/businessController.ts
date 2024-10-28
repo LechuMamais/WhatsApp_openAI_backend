@@ -1,7 +1,6 @@
 import { RequestHandler } from 'express';
 import Business from '../models/businessModel';
 
-// Crear un nuevo negocio
 export const createBusiness: RequestHandler = async (req, res) => {
   try {
     const newBusiness = await Business.create(req.body);
@@ -11,7 +10,6 @@ export const createBusiness: RequestHandler = async (req, res) => {
   }
 };
 
-// Obtener todos los negocios
 export const getAllBusinesses: RequestHandler = async (req, res) => {
   try {
     const businesses = await Business.find();
@@ -21,7 +19,6 @@ export const getAllBusinesses: RequestHandler = async (req, res) => {
   }
 };
 
-// Obtener negocio por ID
 export const getBusinessById: RequestHandler = async (req, res) => {
   try {
     const business = await Business.findById(req.params.id);
@@ -32,7 +29,6 @@ export const getBusinessById: RequestHandler = async (req, res) => {
   }
 };
 
-// Actualizar negocio por ID
 export const updateBusiness: RequestHandler = async (req, res) => {
   try {
     const updatedBusiness = await Business.findByIdAndUpdate(req.params.id, req.body, {
@@ -45,7 +41,6 @@ export const updateBusiness: RequestHandler = async (req, res) => {
   }
 };
 
-// Eliminar negocio por ID
 export const deleteBusiness: RequestHandler = async (req, res) => {
   try {
     const deletedBusiness = await Business.findByIdAndDelete(req.params.id);

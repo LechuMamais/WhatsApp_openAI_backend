@@ -3,11 +3,10 @@ import  { createBusiness, getAllBusinesses, getBusinessById, updateBusiness, del
 
 const router = Router();
 
-// Rutas CRUD para Business
-router.post('/', createBusiness); // Crear un nuevo negocio
-router.get('/', getAllBusinesses); // Obtener todos los negocios
-router.get('/:id', getBusinessById); // Obtener negocio por ID
-router.put('/:id', updateBusiness); // Actualizar negocio por ID
-router.delete('/:id', deleteBusiness); // Eliminar negocio por ID
+router.post('/', createBusiness);
+router.get('/', getAllBusinesses);
+router.get('/:id', getBusinessById);
+router.put('/:id', updateBusiness);
+router.delete('/:id', deleteBusiness);
 
 export default router;

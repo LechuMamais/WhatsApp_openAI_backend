@@ -1,4 +1,3 @@
-// models/faqModel.ts
 import { Schema, model, Document } from 'mongoose';
 
 interface FAQ extends Document {
