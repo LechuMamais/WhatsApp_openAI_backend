@@ -1,7 +1,7 @@
 {
   "name": "whatsapp_openai_backend",
   "version": "1.0.0",
-  "description": "v1 backend proyecto whatsappopenai app para automatizar respuestas de whatsapp utilizando ai",
+  "description": "v0 backend proyecto whatsappopenai app para automatizar respuestas de whatsapp utilizando ai",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",

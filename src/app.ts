@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import faqRoutes from './routes/faqRoutes';
 import businessRoutes from './routes/businessRoutes';
+import aiRoutes from './routes/aiRoutes';
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ app.use(express.json());
 const baseEndPoint = '/api/v0'
 app.use(baseEndPoint+'/faqs', faqRoutes);
 app.use(baseEndPoint+'/businesses', businessRoutes);
+app.use(baseEndPoint+'/ai', aiRoutes);
+
 
 const connectDB = async () => {
   try {
