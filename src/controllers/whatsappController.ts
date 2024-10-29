@@ -4,6 +4,9 @@ import { sendWhatsappMessage } from '../utils/twilioService';
 
 export const handleIncomingMessage = async (req: Request, res: Response) => {
   const { Body, From } = req.body; // Body:string = mensaje, From:string = número del remitente
+
+  console.log(req)
+  console.log('')
   console.log(req.body)
   try {
     // 1. Enviar el mensaje de usuario a OpenAI
