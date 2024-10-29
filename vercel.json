@@ -1,15 +1,28 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "./src/index.ts",
-            "use": "@vercel/node"
-        }
-    ],  
+      {
+        "src": "src/server.ts",
+        "use": "@vercel/node"
+      }
+    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
+      {
+        "src": "/api/v0/faqs(.*)",
+        "dest": "src/server.ts"
+      },
+      {
+        "src": "/api/v0/businesses(.*)",
+        "dest": "src/server.ts"
+      },
+      {
+        "src": "/api/v0/ai(.*)",
+        "dest": "src/server.ts"
+      },
+      {
+        "src": "/api/v0/wa(.*)",
+        "dest": "src/server.ts"
+      }
     ]
-}
+  }
+  
