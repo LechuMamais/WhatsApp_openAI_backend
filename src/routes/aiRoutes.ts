@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { getAIResponse } from '../controllers/aicontroller';
 
-const router = Router();
+const aiRouter = Router();
 
-router.post('/ask', getAIResponse);
+aiRouter.post('/ask', getAIResponse);
 
-export default router;
+export default aiRouter;

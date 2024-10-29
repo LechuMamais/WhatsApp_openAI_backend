@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import { createFAQ, getFAQsByBusinessId, updateFAQ, deleteFAQ } from '../controllers/faqController';
 
-const router = Router();
+const faqRouter = Router();
 
-router.post('/', createFAQ); 
-router.get('/:businessId', getFAQsByBusinessId);
-router.put('/:id', updateFAQ);
-router.delete('/:id', deleteFAQ);
+faqRouter.post('/', createFAQ); 
+faqRouter.get('/:businessId', getFAQsByBusinessId);
+faqRouter.put('/:id', updateFAQ);
+faqRouter.delete('/:id', deleteFAQ);
 
-export default router;
+export default faqRouter;

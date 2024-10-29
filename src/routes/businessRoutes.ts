@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import  { createBusiness, getAllBusinesses, getBusinessById, updateBusiness, deleteBusiness } from '../controllers/businessController';
+import { createBusiness, getAllBusinesses, getBusinessById, updateBusiness, deleteBusiness } from '../controllers/businessController';
 
-const router = Router();
+const businessRouter = Router();
 
-router.post('/', createBusiness);
-router.get('/', getAllBusinesses);
-router.get('/:id', getBusinessById);
-router.put('/:id', updateBusiness);
-router.delete('/:id', deleteBusiness);
+businessRouter.post('/', createBusiness);
+businessRouter.get('/', getAllBusinesses);
+businessRouter.get('/:id', getBusinessById);
+businessRouter.put('/:id', updateBusiness);
+businessRouter.delete('/:id', deleteBusiness);
 
-export default router;
+export default businessRouter;
