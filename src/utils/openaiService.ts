@@ -1,4 +1,5 @@
 import { OpenAI } from "openai";
+import { openAiPromptInstructions } from "../const/openaiPromptInstructions";
 
 const max_tokens = 300
 const temperature = 0.001   // A tope de serio, 0 creativo
@@ -17,7 +18,7 @@ export const getAnswerFromOpenAI = async (question: string): Promise<OpenAiAPIRe
             messages: [
                 {
                     "role": "user",
-                    "content": [{ "type": "text", "text": question }]
+                    "content": [{ "type": "text", "text": `${openAiPromptInstructions} - ${question}` }]
                 }
             ],
             max_tokens,
