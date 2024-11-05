@@ -5,14 +5,6 @@ import { sendWhatsappMessage } from '../utils/twilioService';
 export const handleIncomingMessage = async (req: Request, res: Response) => {
   const { Body, From } = req.body; // Body:string = mensaje, From:string = número del remitente
 
-  console.log('req: ', req)
-
-  console.log('body: ', req.body)
-
-  //Vamos por acá Por alguna razon cuando llega un mensaje de whatsapp, no llega el contenido. Es decir se accede
-  // a la ruta, pero no llega el body, sino que llega vacío.
-  // Es probable que sea alguna configuración de Twilio sandBox
-
   try {
     // 1. Enviar el mensaje de usuario a OpenAI
     const responseText = await getAnswerFromOpenAI(Body);

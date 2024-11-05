@@ -1,7 +1,7 @@
 import { OpenAI } from "openai";
 
-const max_tokens = 200
-const temperature = 0.001   // A tope de serio, 0 creativo
+const max_tokens = 1000
+const temperature = 1   // A tope de serio, 0 creativo
 
 // Esta funcion es sólo para users, luego habrá que adaptarla para "system", que es el que lo configura.
 // Además habrá que configurarla para que sea capaz de recibir no sólo una question, sino las ultimas
