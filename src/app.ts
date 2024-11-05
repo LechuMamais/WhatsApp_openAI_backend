@@ -11,12 +11,13 @@ dotenv.config();
 
 const app: Application = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const baseEndPoint = '/api/v0'
-app.use(baseEndPoint+'/faqs', faqRouter);
-app.use(baseEndPoint+'/businesses', businessRouter);
-app.use(baseEndPoint+'/ai', aiRoutes);
-app.use(baseEndPoint+'/wa', twilioRouter)
+app.use(baseEndPoint + '/faqs', faqRouter);
+app.use(baseEndPoint + '/businesses', businessRouter);
+app.use(baseEndPoint + '/ai', aiRoutes);
+app.use(baseEndPoint + '/wa', twilioRouter)
 
 
 const connectDB = async () => {
