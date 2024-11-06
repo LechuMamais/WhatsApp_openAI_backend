@@ -1,5 +1,5 @@
 import { OpenAI } from "openai";
-import { openAiPromptInstructions } from "../const/openaiPromptInstructions";
+import { openAiPromptInstructions } from "../const/openAiPromptInstructions";
 
 const max_tokens = 300
 const temperature = 0.001   // A tope de serio, 0 creativo
