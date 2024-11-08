@@ -6,12 +6,11 @@ const startServer = async () => {
   await connectDB();
   // Prueba local//
   app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port: ${PORT}`);
   });
   /////////////////
 };
 
-// Ejecuta la función sin iniciar el servidor con `listen`
 startServer();
 
 export default app;
