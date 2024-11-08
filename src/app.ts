@@ -20,6 +20,7 @@ app.use(baseEndPoint + '/ai', aiRoutes);
 app.use(baseEndPoint + '/wa', twilioRouter)
 
 
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI as string);

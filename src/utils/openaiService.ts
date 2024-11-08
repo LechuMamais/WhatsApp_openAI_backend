@@ -1,5 +1,4 @@
 import { OpenAI } from "openai";
-import { openAiPromptInstructions } from "../const/openAiPromptInstructions";
 
 const max_tokens = 300
 const temperature = 0   // A tope de serio, 0 creativo
@@ -7,20 +6,16 @@ const temperature = 0   // A tope de serio, 0 creativo
 // Esta funcion es sólo para users, luego habrá que adaptarla para "system", que es el que lo configura.
 // Además habrá que configurarla para que sea capaz de recibir no sólo una question, sino las ultimas
 // X cantidad de respuestas, para dar una mejor respuesta.
-export const getAnswerFromOpenAI = async (question: string): Promise<OpenAiAPIResponse> => {
+export const getAnswerFromOpenAI = async (messages: MessageOpenAI[]): Promise<OpenAiAPIResponse> => {
     const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
     });
 
     try {
+        console.log('getAnswerFromOpenAI -> messages:', messages)
         const response = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
-            messages: [
-                {
-                    "role": "user",
-                    "content": [{ "type": "text", "text": `${openAiPromptInstructions} - ${question}` }]
-                }
-            ],
+            messages,
             max_tokens,
             temperature,
         });

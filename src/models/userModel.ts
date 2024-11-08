@@ -1,19 +1,22 @@
 import { Schema, model, Document } from 'mongoose';
 
-interface User extends Document {
-    cellphone: string;
-    messages: MessageOpenAI[];
+export interface IUser extends Document, UserType {
     createdAt?: Date;
     updatedAt?: Date;
 }
 
-const userSchema = new Schema<User>(
+const userSchema = new Schema<IUser>(
     {
         cellphone: { type: String, required: true },
-        messages: [{ type: Schema.Types.ObjectId, ref: 'messageSchema' }],
+        messages: [
+            {
+                role: { type: String, required: true, enum: ['system', 'user', 'assistant'] },
+                content: { type: String, required: true }
+            }
+        ]
     },
 
     { timestamps: true }
 );
 
-export default model<User>('User', userSchema);
+export default model<IUser>('User', userSchema);
