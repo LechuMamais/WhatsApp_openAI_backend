@@ -12,7 +12,7 @@ export const getAnswerFromOpenAI = async (messages: MessageOpenAI[]): Promise<Op
     });
 
     try {
-        console.log('getAnswerFromOpenAI -> messages:', messages)
+        //console.log('getAnswerFromOpenAI -> messages:', messages)
         const response = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
             messages,

@@ -10,7 +10,7 @@ export const handleIncomingMessage = async (req: Request, res: Response) => {
     // En caso de que no haya, creamos un nuevo usuario, con este nuevo número, y le agregamos el primer mensaje role = system
     // 2. Agregar el mensaje que recibimos en el Body al array de mensajes de este usuario/número.
     const user = await createMessage({ cellphone: From, role: 'user', content: Body })
-    console.log('handleIncomingMessage -> user: ', user)
+    //console.log('handleIncomingMessage -> user: ', user)
 
     if (!('messages' in user)) {
       return res.status(400).send({ message: 'Error al obtener los mensajes del usuario' });
@@ -19,7 +19,11 @@ export const handleIncomingMessage = async (req: Request, res: Response) => {
     // 3. Enviarle a openAi el array de mensajes completo, y esperar su respuesta.
     const responseText = await getAnswerFromOpenAI(user?.messages);
 
-    console.log('Respuesta de openAI: ', responseText)
+    // 4. Agregar la respuesta de openAI al array de mensajes del usuario
+    user.messages.push(responseText); // Agrega el  del mensaje al array de mensajes de usuario
+    await user.save();
+
+    //console.log('Respuesta de openAI: ', responseText)
 
     // 4. Enviar la respuesta de la IA al usuario, a través de whatsappp
     await sendWhatsappMessage(From, responseText.content);
