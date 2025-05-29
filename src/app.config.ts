@@ -26,7 +26,7 @@ const config: AppConfig = {
   twilio: {
     accountSid: process.env.TWILIO_ACCOUNT_SID || 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     authToken: process.env.TWILIO_AUTH_TOKEN || '',
-    phoneNumber: process.env.TWILIO_PHONE_NUMBER || ''
+    phoneNumber: process.env.TWILIO_WHATSAPP_NUMBER || ''
   },
 
   ai: {
