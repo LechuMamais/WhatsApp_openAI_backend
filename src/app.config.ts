@@ -21,7 +21,7 @@ export interface AppConfig {
 
 const config: AppConfig = {
   //env: process.env.NODE_ENV || 'development',
-  port: parseInt(process.env.PORT || '3000'),
+  port: parseInt(process.env.PORT || '5000'),
   
   twilio: {
     accountSid: process.env.TWILIO_ACCOUNT_SID || 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
