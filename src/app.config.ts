@@ -24,7 +24,7 @@ const config: AppConfig = {
   port: parseInt(process.env.PORT || '3000'),
   
   twilio: {
-    accountSid: process.env.TWILIO_ACCOUNT_SID || '',
+    accountSid: process.env.TWILIO_ACCOUNT_SID || 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     authToken: process.env.TWILIO_AUTH_TOKEN || '',
     phoneNumber: process.env.TWILIO_PHONE_NUMBER || ''
   },

@@ -13,7 +13,6 @@ export const createMessage = async ({ cellphone, role, content }: Params) => {
         // Si el usuario no existe, lo creamos en la bd y le ponoemos el mensaje de configuración
         if (!user) {
             user = new User({ cellphone, messages: [AIConfigurationSystemMessage] });
-            await user.save();
         }
 
         // Agregamos el mensaje al array de mensajes del usuario
