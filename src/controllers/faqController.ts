@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
-import { Schema } from 'mongoose';
 import FAQ from '../models/faqModel';
 import Business from '../models/businessModel';
+import mongoose from 'mongoose';
 
 export const createFAQ: RequestHandler = async (req, res) => {
   try {
@@ -9,16 +9,16 @@ export const createFAQ: RequestHandler = async (req, res) => {
 
     const business = await Business.findById(businessId);
     if (!business) {
-      res.status(404).json({ message: 'Business not found' });
-    }else{
-      const faq = new FAQ({ question, answer, business: businessId });
-      await faq.save();
-
-      business.faqs.push(faq._id as Schema.Types.ObjectId);
-      await business.save();
-      
-      res.status(201).json(faq);
+      return res.status(404).json({ message: 'Business not found' });
     }
+
+    const faq = new FAQ({ question, answer, business: businessId });
+    await faq.save();
+
+    business.faqs.push(faq._id as mongoose.Types.ObjectId);
+    await business.save();
+    
+    res.status(201).json(faq);
 
   } catch (error) {
     res.status(500).json({ message: 'Error creating FAQ', error });

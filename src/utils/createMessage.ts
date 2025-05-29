@@ -1,4 +1,4 @@
-import User, { IUser } from '../models/userModel';
+import User from '../models/userModel';
 import { AIConfigurationSystemMessage } from '../const/AIConfigurationSystemMessage';
 
 interface Params extends MessageOpenAI {

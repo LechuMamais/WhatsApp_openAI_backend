@@ -1,12 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
-
-interface FAQ extends Document {
-  question: string;
-  answer: string;
-  business: Schema.Types.ObjectId;
-  createdAt?: Date;
-  updatedAt?: Date;
-}
+import { Schema, model } from 'mongoose';
 
 const faqSchema = new Schema<FAQ>(
   {

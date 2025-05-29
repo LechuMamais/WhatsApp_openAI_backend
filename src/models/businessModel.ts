@@ -4,7 +4,7 @@ interface IBusiness extends Document {
   // Información básica
   name: string;
   description?: string;
-  faqs: Schema.Types.ObjectId[];
+  faqs: [{ type: Schema.Types.ObjectId, ref: 'FAQ' }]
   category?: string;
   subcategory?: string;
   logoUrl?: string;
