@@ -7,7 +7,6 @@ interface Params extends MessageOpenAI {
 
 export const createMessage = async ({ cellphone, role, content }: Params) => {
     try {
-
         // Busca al usuario por el número de teléfono
         let user: IUser | null = await User.findOne({ cellphone });
 
@@ -16,10 +15,9 @@ export const createMessage = async ({ cellphone, role, content }: Params) => {
             user = new User({ cellphone, messages: [AIConfigurationSystemMessage] });
             await user.save();
         }
-        //console.log('user: ', user)
 
-        // Agrega el mensaje al array de mensajes del usuario
-        user.messages.push({ role, content }); // Agrega el  del mensaje al array de mensajes de usuario
+        // Agregamos el mensaje al array de mensajes del usuario
+        user.messages.push({ role, content });
         await user.save();
 
         return user

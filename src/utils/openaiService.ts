@@ -1,20 +1,20 @@
 import { OpenAI } from "openai";
+import config from "../app.config";
 
-const max_tokens = 300
-const temperature = 0   // A tope de serio, 0 creativo
+const max_tokens = config.ai.maxTokens || 400;
+const temperature = config.ai.temperature
 
 // Esta funcion es sólo para users, luego habrá que adaptarla para "system", que es el que lo configura.
-// Además habrá que configurarla para que sea capaz de recibir no sólo una question, sino las ultimas
-// X cantidad de respuestas, para dar una mejor respuesta.
+// A futuro puede ser interesante configurarla para que sea capaz de recibir no sólo una question, sino los ultimas
+// X cantidad de mensajes, para dar mayor contexto y que elabore una mejor respuesta.
 export const getAnswerFromOpenAI = async (messages: MessageOpenAI[]): Promise<OpenAiAPIResponse> => {
     const openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: config.ai.apiKey,
     });
 
     try {
-        //console.log('getAnswerFromOpenAI -> messages:', messages)
         const response = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo',
+            model: config.ai.model,
             messages,
             max_tokens,
             temperature,

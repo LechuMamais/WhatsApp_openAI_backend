@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import { getAnswerFromOpenAI } from '../utils/openaiService';
 
-export const getAIResponse = async (req: Request, res: Response): Promise<void> => {
+export const getAIResponse: RequestHandler = async (req, res) => {
   try {
     const { question } = req.body;
     if (!question) {
