@@ -1,4 +1,4 @@
-import { Request, RequestHandler, Response } from 'express';
+import { RequestHandler } from 'express';
 import { getAnswerFromOpenAI } from '../utils/openaiService';
 
 export const getAIResponse: RequestHandler = async (req, res) => {

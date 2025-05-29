@@ -1,4 +1,4 @@
-import { Request, RequestHandler, Response } from 'express';
+import { RequestHandler } from 'express';
 import { getAnswerFromOpenAI } from '../utils/openaiService';
 import { sendWhatsappMessage } from '../utils/twilioService';
 import { createMessage } from '../utils/createMessage';
